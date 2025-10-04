@@ -15,9 +15,22 @@ class _FrontState extends State<Front> {
     double height=double.parse(heightcontroller.text)/100;
     double weight=double.parse(weightcontroller.text);
     double BMI=weight/(height*height);
+if(BMI<=18.5){
     setState(() {
-      Result="your BMI is ${BMI.toStringAsFixed(2)}";
+      Result="your BMI is ${BMI.toStringAsFixed(2)} underweight";
     });
+  }
+  else if(BMI>=18.5&&BMI<=24.5){
+    setState(() {
+      Result="your BMI is ${BMI.toStringAsFixed(2)} normal";
+    });
+  }
+  else if(BMI>=29.9)
+  { 
+    setState(() {
+      Result="your BMI is ${BMI.toStringAsFixed(2)}  overweight";
+    });
+  }
   }
   @override
   Widget build(BuildContext context) {
